@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgubn0nnkt3el"]
+
+[ext_resource type="Texture2D" uid="uid://dfhwg2x81cvcq" path="res://button/textures/EditUnpressed.svg" id="1_mwulm"]
+[ext_resource type="Texture2D" uid="uid://b1vvcbjpr44kg" path="res://button/textures/EditPressed.svg" id="2_x42cv"]
+[ext_resource type="Texture2D" uid="uid://b3fb6p0f18kgn" path="res://button/textures/EditHovered.svg" id="3_r82wd"]
+
+[node name="EditButton" type="TextureButton"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_mwulm")
+texture_pressed = ExtResource("2_x42cv")
+texture_hover = ExtResource("3_r82wd")
+ignore_texture_size = true
+stretch_mode = 5

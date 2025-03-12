@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="40mm"
+   height="40mm"
+   viewBox="0 0 40 40"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="CycleHovered.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.38930275"
+     inkscape:cx="-566.39723"
+     inkscape:cy="513.73899"
+     inkscape:window-width="1918"
+     inkscape:window-height="1057"
+     inkscape:window-x="1920"
+     inkscape:window-y="21"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1-1-0-0-5-3"
+       x="-0.12288"
+       y="-0.12288"
+       width="1.24576"
+       height="1.24576">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.6384"
+         id="feGaussianBlur1-8-2-7-4-56" />
+    </filter>
+    <marker
+       style="overflow:visible"
+       id="ArrowTriangleStylized-2"
+       refX="0.625"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Stylized triangle arrow"
+       markerWidth="0.25"
+       markerHeight="0.5"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="none">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="m 6,0 c -3,1 -7,3 -9,5 0,0 0,-4 2,-5 -2,-1 -2,-5 -2,-5 2,2 6,4 9,5 z"
+         id="path4-8" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-160,39.999997)">
+    <g
+       id="g11"
+       inkscape:export-filename="/home/terra/Documents/Game_Files/book-planner-v4/assets/img/CycleHovered.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0701146;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1-1-0-0-5-3)"
+         id="path1-5-3-5-2-2-6"
+         cx="65.088882"
+         cy="49.61327"
+         r="16"
+         transform="matrix(1.0034036,0,0,1.0034036,114.68958,-69.78213)" />
+      <circle
+         style="fill:#4d4d4d;stroke-width:0.0701146;stroke-linecap:round;stroke-linejoin:round"
+         id="path1-8-8-2-9-0"
+         cx="178"
+         cy="-22"
+         r="16" />
+      <g
+         id="g23-6-2-4-6"
+         transform="translate(9.80423,-147.19717)" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowTriangleStylized-2)"
+         d="m 175.33284,-31.952943 c -4.5075,1.206041 -7.64479,5.286828 -7.65173,9.952881 0.005,0.901169 0.12798,1.797804 0.36587,2.667021"
+         id="path6-1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowTriangleStylized-2)"
+         d="m 170.72175,-14.721953 c 1.92765,1.937371 4.54514,3.030903 7.27811,3.040641 2.73297,-0.0097 5.35046,-1.10327 7.27811,-3.040641"
+         id="path5-2" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowTriangleStylized-2)"
+         d="m 187.95326,-19.333041 c 0.23789,-0.869217 0.3609,-1.765852 0.36587,-2.667021 -0.001,-4.669737 -3.13841,-8.756603 -7.64915,-9.964767"
+         id="path3" />
+    </g>
+  </g>
+</svg>

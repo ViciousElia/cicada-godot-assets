@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0modmy5rgqmw"]
+
+[ext_resource type="Script" path="res://value/scripts/bbcode_value.gd" id="1_6w1gf"]
+[ext_resource type="PackedScene" uid="uid://facem0obkcpq" path="res://value/bbcode_edit.tscn" id="2_r148w"]
+[ext_resource type="PackedScene" uid="uid://b7rqoslc0tdbq" path="res://button/cycle_button.tscn" id="3_ollph"]
+
+[node name="BBCodeValue" type="RichTextLabel"]
+custom_minimum_size = Vector2(360, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][font_size=24]Rich Text Content[/font_size][/center]
+Content can be formatted through the use of BBCode. Supported BBCode tags can be found at the [url=https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html#reference]Godot Reference[/url]. Custom tags may be included for use with external systems such as ebook tools and LaTeX parsers. Brackets should be escaped as [lb]lb[rb] and [lb]rb[rb]."
+script = ExtResource("1_6w1gf")
+
+[node name="BBCodeEdit" parent="." instance=ExtResource("2_r148w")]
+visible = false
+layout_mode = 1
+
+[node name="CycleButton" parent="." instance=ExtResource("3_ollph")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]
+[connection signal="text_changed" from="BBCodeEdit" to="." method="_on_code_changed"]
+[connection signal="pressed" from="CycleButton" to="." method="_on_cycle_pressed"]

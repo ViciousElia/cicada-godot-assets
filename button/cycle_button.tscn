@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7rqoslc0tdbq"]
+
+[ext_resource type="Texture2D" uid="uid://c8bktpgb5k2lx" path="res://button/textures/CycleUnpressed.svg" id="1_jpkc1"]
+[ext_resource type="Texture2D" uid="uid://cpa24htjxgmue" path="res://button/textures/CyclePressed.svg" id="2_fo1ed"]
+[ext_resource type="Texture2D" uid="uid://cagfgnfxli5bf" path="res://button/textures/CycleHovered.svg" id="3_b8i3p"]
+
+[node name="CycleButton" type="TextureButton"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_jpkc1")
+texture_pressed = ExtResource("2_fo1ed")
+texture_hover = ExtResource("3_b8i3p")
+ignore_texture_size = true
+stretch_mode = 5

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0y7m8btnv3hq"]
+
+[ext_resource type="Texture2D" uid="uid://cajkrvlp2atwe" path="res://button/textures/DecimalUnpressed.svg" id="1_ldlgc"]
+[ext_resource type="Texture2D" uid="uid://chhbrkvj3wnqb" path="res://button/textures/DecimalPressed.svg" id="2_wiqdx"]
+[ext_resource type="Texture2D" uid="uid://c48dj7uferkto" path="res://button/textures/DecimalHovered.svg" id="3_sksnl"]
+
+[node name="DecimalButton" type="TextureButton"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ldlgc")
+texture_pressed = ExtResource("2_wiqdx")
+texture_hover = ExtResource("3_sksnl")
+ignore_texture_size = true
+stretch_mode = 5

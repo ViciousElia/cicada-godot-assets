@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://facem0obkcpq"]
+
+[ext_resource type="Script" path="res://value/scripts/bbcode_edit.gd" id="1_4h6kk"]
+
+[node name="BBCodeEdit" type="CodeEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "[center][font_size=32]Rich Text Content[/font_size][/center]
+Content can be formatted through the use of BBCode. Supported BBCode tags can be found at the [url={\"link\":\"https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html#reference\"}]Godot Reference[/url]."
+placeholder_text = "Rich Text Value in BBCode. Should automatically update the label with any changes made."
+wrap_mode = 1
+indent_wrapped_lines = true
+line_folding = true
+line_length_guidelines = Array[int]([120, 80])
+script = ExtResource("1_4h6kk")

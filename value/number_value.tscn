@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpywjxvk51urk"]
+
+[ext_resource type="Script" path="res://value/scripts/number_value.gd" id="1_amm7l"]
+[ext_resource type="PackedScene" uid="uid://d0y7m8btnv3hq" path="res://button/decimal_button.tscn" id="1_mx5w8"]
+
+[node name="NumberValue" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_amm7l")
+
+[node name="NumberSlider" type="HSlider" parent="."]
+layout_mode = 2
+value = 50.0
+tick_count = 10
+
+[node name="NumberControlsGroup" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="QuickValueView" type="SpinBox" parent="NumberControlsGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+update_on_text_changed = true
+
+[node name="Separator" type="VSeparator" parent="NumberControlsGroup"]
+layout_mode = 2
+
+[node name="MinLabel" type="Label" parent="NumberControlsGroup"]
+layout_mode = 2
+text = "Min"
+
+[node name="MinValue" type="SpinBox" parent="NumberControlsGroup"]
+layout_mode = 2
+min_value = -1e+09
+max_value = 1e+09
+update_on_text_changed = true
+
+[node name="MaxLabel" type="Label" parent="NumberControlsGroup"]
+layout_mode = 2
+text = "Max"
+
+[node name="MaxValue" type="SpinBox" parent="NumberControlsGroup"]
+layout_mode = 2
+min_value = -1e+09
+max_value = 1e+09
+value = 100.0
+update_on_text_changed = true
+
+[node name="DecimalButton" parent="NumberControlsGroup" instance=ExtResource("1_mx5w8")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[connection signal="value_changed" from="NumberSlider" to="." method="_on_number_value_changed"]
+[connection signal="value_changed" from="NumberControlsGroup/QuickValueView" to="." method="_on_view_value_changed"]
+[connection signal="value_changed" from="NumberControlsGroup/MinValue" to="." method="_on_min_value_changed"]
+[connection signal="value_changed" from="NumberControlsGroup/MaxValue" to="." method="_on_max_value_changed"]
+[connection signal="toggled" from="NumberControlsGroup/DecimalButton" to="." method="_on_decimal_button_toggled"]
