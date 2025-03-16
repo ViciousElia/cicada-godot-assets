@@ -25,6 +25,8 @@ func get_value() -> String:
 	return text
 func set_settings(data : LabelSettings):
 	label_settings = data
+func get_settings():
+	pass
 func set_disabled(disable : bool):
 	$EditButton.disabled = disable
 	$LineEdit/ConfirmButton.disabled = disable
@@ -69,3 +71,7 @@ func _on_text_focus_exited() -> void:
 		if local_position.y >=0 and local_position.y <= size.y:
 			return
 	_on_confirm_button_pressed()
+
+
+func export():
+	pass
