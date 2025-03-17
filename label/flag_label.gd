@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 func initialise(value : String, freeLabel : bool = false) -> void:
-	set_disabled(true)
+	_set_disabled(true)
 	set_value(value)
 	if freeLabel:
 		$EditButton.visible = true
