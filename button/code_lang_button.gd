@@ -18,7 +18,7 @@ func initialise(value : int, fixed : bool = false):
 	tooltip_text = get_item_tooltip(value)
 	disabled = fixed
 	fixedVal = fixed
-func setDisabled(disable : bool = false):
+func _set_Disabled(disable : bool = false):
 	if fixedVal : pass
 	else : disabled = disable
 

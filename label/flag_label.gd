@@ -27,7 +27,7 @@ func set_settings(data : LabelSettings):
 	label_settings = data
 func get_settings():
 	pass
-func set_disabled(disable : bool):
+func _set_disabled(disable : bool):
 	$EditButton.disabled = disable
 	$LineEdit/ConfirmButton.disabled = disable
 	$LineEdit/CancelButton.disabled = disable
