@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgm5ewpqub1ow"]
+
+[ext_resource type="Script" path="res://value/scripts/specific_code_value.gd" id="1_88aan"]
+[ext_resource type="PackedScene" uid="uid://b2n4lfelw7wcv" path="res://button/code_lang_button.tscn" id="2_88tpo"]
+
+[node name="SpecificCodeValue" type="CodeEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Code from a specific coding language. Syntax highlighting as available."
+wrap_mode = 1
+indent_wrapped_lines = true
+minimap_draw = true
+caret_blink = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+line_length_guidelines = Array[int]([120, 80])
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+script = ExtResource("1_88aan")
+
+[node name="CodeLangButton" parent="." instance=ExtResource("2_88tpo")]
+layout_mode = 1
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -31.0
+offset_bottom = 0.0
+grow_vertical = 0

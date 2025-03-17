@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddfjci7e187hr"]
+
+[ext_resource type="PackedScene" uid="uid://bsjig1fiminc8" path="res://value/text_value.tscn" id="1_5gyqf"]
+[ext_resource type="PackedScene" uid="uid://cxkuc0nsd4an8" path="res://button/text_case_button.tscn" id="2_b6m4e"]
+
+[node name="FormattedTextValue" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="TextValue" parent="." instance=ExtResource("1_5gyqf")]
+layout_mode = 2
+
+[node name="TextCaseButton" parent="." instance=ExtResource("2_b6m4e")]
+layout_mode = 2

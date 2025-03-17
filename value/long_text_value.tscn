@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dl7sel3137fwl"]
+
+[node name="LongTextValue" type="TextEdit"]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Text up to -- or beyond -- 255 characters. Built for multi-line text."
+wrap_mode = 1
+indent_wrapped_lines = true
+scroll_smooth = true

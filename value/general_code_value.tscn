@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccq3xb81nder0"]
+
+[ext_resource type="Script" path="res://value/scripts/general_code_value.gd" id="1_wr5js"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_cwtp4"]
+number_color = Color(0.3, 0.75, 0.5475, 1)
+symbol_color = Color(0.3, 0.5025, 0.75, 1)
+function_color = Color(0.5475, 0.3, 0.75, 1)
+member_variable_color = Color(0.75, 0.5475, 0.3, 1)
+
+[node name="GeneralCodeValue" type="CodeEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Generalised code text."
+wrap_mode = 1
+indent_wrapped_lines = true
+scroll_smooth = true
+minimap_draw = true
+caret_blink = true
+syntax_highlighter = SubResource("CodeHighlighter_cwtp4")
+line_length_guidelines = Array[int]([120, 80])
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+script = ExtResource("1_wr5js")
