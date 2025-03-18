@@ -10,3 +10,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_lg4x2")
+
+[connection signal="color_changed" from="." to="." method="_on_color_changed"]

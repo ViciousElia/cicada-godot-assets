@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bsjig1fiminc8"]
+[gd_scene load_steps=2 format=3 uid="uid://bsjig1fiminc8"]
+
+[ext_resource type="Script" path="res://value/scripts/text_value.gd" id="1_g0k0o"]
 
 [node name="TextValue" type="LineEdit"]
 anchors_preset = 15
@@ -9,3 +11,4 @@ grow_vertical = 2
 size_flags_horizontal = 3
 placeholder_text = "Text under 256 characters"
 max_length = 255
+script = ExtResource("1_g0k0o")

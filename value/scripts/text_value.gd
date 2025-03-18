@@ -1,13 +1,9 @@
-class_name GeneralCodeValue
-extends CodeEdit
-
-# TODO : Confirm if the theme does weird stuff on systems that use light mode by default,
-#        and setup the highlighting to respond to light/dark mode ...
-#        see if highlighting is themeable.
+class_name TextValue
+extends LineEdit
 
 var disableAll : bool = false
 
-signal value_changed(newText : String, me : GeneralCodeValue)
+signal value_changed(newText : String, me : TextValue)
 
 func _ready(): pass
 func _process(_delta: float): pass

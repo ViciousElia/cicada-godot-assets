@@ -1,39 +1,32 @@
 class_name FlagLabel
 extends Label
 
+# TODO : Write import and export methods
+
 signal value_changed(newText : String, me : FlagLabel)
 
 var disableAll : bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-func _process(_delta: float) -> void:
-	pass
+func _ready(): pass
+func _process(_delta: float): pass
 func initialise(value : String, freeLabel : bool = false) -> void:
 	_set_disabled(true)
 	set_value(value)
 	if freeLabel:
 		$EditButton.visible = true
-		pass
-	pass
 
 func set_value(data : String):
 	text = data
 	$LineEdit.text = data
-func get_value() -> String:
-	return text
-func set_settings(data : LabelSettings):
-	label_settings = data
-func get_settings():
-	pass
+func get_value() -> String: return text
+func set_settings(data : LabelSettings): label_settings = data
+func get_settings(): pass
 func _set_disabled(disable : bool):
 	$EditButton.disabled = disable
 	$LineEdit/ConfirmButton.disabled = disable
 	$LineEdit/CancelButton.disabled = disable
 	$LineEdit.editable = !disable
 	disableAll = disable
-	pass
 
 ### MAIN OBJECT METHODS ###
 func _on_gui_input(event: InputEvent) -> void:
@@ -57,21 +50,21 @@ func _on_cancel_button_pressed() -> void:
 	$LineEdit.visible = false
 
 ### EDIT OBJECT METHODS ###
-func _on_text_submitted(_new_text: String) -> void:
-	_on_confirm_button_pressed()
-func _on_text_gui_input(event: InputEvent) -> void:
+func _on_text_submitted(_new_text: String): _on_confirm_button_pressed()
+func _on_text_gui_input(event: InputEvent):
 	if event is InputEventKey:
 		match event.keycode:
 			KEY_ESCAPE: _on_cancel_button_pressed()
 			KEY_TAB: _on_confirm_button_pressed()
 			_: pass
-func _on_text_focus_exited() -> void:
+func _on_text_focus_exited():
 	var local_position = get_viewport().get_mouse_position() - position
 	if local_position.x >= 0 and local_position.x <= size.x:
 		if local_position.y >=0 and local_position.y <= size.y:
 			return
 	_on_confirm_button_pressed()
 
-
 func export():
+	pass
+func import():
 	pass

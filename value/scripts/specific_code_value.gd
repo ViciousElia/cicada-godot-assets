@@ -1,21 +1,21 @@
 class_name SpecificCodeValue
 extends GeneralCodeValue
 
-# TODO : Add code for highlighting ... maybe by using secondary tools ... we'll see
-# TODO : Add event listeners ... needs code_changed from $CodeLangButton and text_changed behaves as parent ... 
-# TODO : Add signals ... only needs settings_changed ... value_changed behaves as parent ...
+# TODO : Add code for highlighting ... maybe by using secondary tools ... we'll see.
+#        Probably ought to make an array whose elements match the indices of CodeLangButton?
+#        We can at worst build up the highlighters and switch em with a match(idx).
 
-func _ready() -> void:
-	pass
-func _process(_delta: float) -> void:
-	pass
+signal settings_changed(newSettings : int, me : SpecificCodeValue)
 
-# func set_value(newVal : String): Set/Get value use the same definition as General
-# func get_value() -> String:
+func _ready():
+	# TODO : Set default highlighting mode.
+	pass
+func _process(_delta: float): pass
+
 func set_settings(newVal):
+	# TODO : Change highlighting modes based on idx.
 	$CodeLangButton.initialise(newVal.value,newVal.rule)
-func get_settings():
-	return {"value":$CodeLangButton.selected,"rule":$CodeLangButton.fixedVal}
+func get_settings() -> Dictionary: return {"value":$CodeLangButton.selected,"rule":$CodeLangButton.fixedVal}
 func _set_disabled(disable : bool = false):
 	editable = !disable
 	$CodeLangButton._set_disabled(disable)
@@ -28,3 +28,7 @@ func import(data : Dictionary = {"value":""}):
 	text = data.value
 	if data.has("settings") :
 		$CodeLangButton.initialise(data.settings.value,data.settings.rule)
+
+func _on_code_changed(idx: int, _me: CodeLangButton):
+	# TODO : Change highlighting modes based on idx.
+	settings_changed.emit(idx,self)

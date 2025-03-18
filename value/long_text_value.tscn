@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dl7sel3137fwl"]
+[gd_scene load_steps=2 format=3 uid="uid://dl7sel3137fwl"]
+
+[ext_resource type="Script" path="res://value/scripts/long_text_value.gd" id="1_yfjgk"]
 
 [node name="LongTextValue" type="TextEdit"]
 custom_minimum_size = Vector2(0, 200)
@@ -13,3 +15,6 @@ placeholder_text = "Text up to -- or beyond -- 255 characters. Built for multi-l
 wrap_mode = 1
 indent_wrapped_lines = true
 scroll_smooth = true
+script = ExtResource("1_yfjgk")
+
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]

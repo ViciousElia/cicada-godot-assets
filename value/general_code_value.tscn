@@ -27,3 +27,5 @@ line_length_guidelines = Array[int]([120, 80])
 gutters_draw_line_numbers = true
 gutters_zero_pad_line_numbers = true
 script = ExtResource("1_wr5js")
+
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]
