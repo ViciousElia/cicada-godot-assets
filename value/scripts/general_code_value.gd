@@ -1,10 +1,6 @@
 class_name GeneralCodeValue
 extends CodeEdit
 
-# TODO : Confirm if the theme does weird stuff on systems that use light mode by default,
-#        and setup the highlighting to respond to light/dark mode ...
-#        see if highlighting is themeable.
-
 var disableAll : bool = false
 
 signal value_changed(newText : String, me : GeneralCodeValue)

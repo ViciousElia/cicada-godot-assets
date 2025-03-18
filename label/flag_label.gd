@@ -1,8 +1,6 @@
 class_name FlagLabel
 extends Label
 
-# TODO : Write import and export methods
-
 signal value_changed(newText : String, me : FlagLabel)
 
 var disableAll : bool = false
@@ -10,17 +8,15 @@ var disableAll : bool = false
 func _ready(): pass
 func _process(_delta: float): pass
 func initialise(value : String, freeLabel : bool = false) -> void:
-	_set_disabled(true)
 	set_value(value)
-	if freeLabel:
-		$EditButton.visible = true
+	$EditButton.visible = freeLabel
 
 func set_value(data : String):
 	text = data
 	$LineEdit.text = data
 func get_value() -> String: return text
 func set_settings(data : LabelSettings): label_settings = data
-func get_settings(): pass
+func get_settings(): return label_settings
 func _set_disabled(disable : bool):
 	$EditButton.disabled = disable
 	$LineEdit/ConfirmButton.disabled = disable
@@ -64,7 +60,12 @@ func _on_text_focus_exited():
 			return
 	_on_confirm_button_pressed()
 
-func export():
-	pass
-func import():
+func export(_withSettings : bool = true) -> Dictionary:
+	if _withSettings : return {"value":text,"settings":{"visual":label_settings,"functional":$EditButton.visible}}
+	else : return {"value":text}
+func import(data : Dictionary):
+	set_value(data.value)
+	if data.has("settings") : 
+		$EditButton.visible = data.settings.functional
+		label_settings = data.settings.visual
 	pass

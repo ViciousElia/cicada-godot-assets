@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5goxd3m2f6o"]
+
+[ext_resource type="PackedScene" uid="uid://d0y7m8btnv3hq" path="res://button/decimal_button.tscn" id="1_xmg88"]
+[ext_resource type="Script" path="res://control/scripts/number_control.gd" id="1_yldv5"]
+
+[node name="NumberControl" type="HBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_yldv5")
+
+[node name="MinLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Min: "
+
+[node name="MinValue" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1e+09
+max_value = 1e+09
+value = -1000.0
+update_on_text_changed = true
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="MaxLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Max: "
+
+[node name="MaxValue" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1e+09
+max_value = 1e+09
+value = 1000.0
+update_on_text_changed = true
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="DecimalButton" parent="." instance=ExtResource("1_xmg88")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[connection signal="value_changed" from="MinValue" to="." method="_on_min_value_changed"]
+[connection signal="value_changed" from="MaxValue" to="." method="_on_max_value_changed"]
+[connection signal="toggled" from="DecimalButton" to="." method="_on_decimal_toggled"]
