@@ -23,7 +23,7 @@ Without such a consistent experience, the designer will have to account for all
 possible assets. This is both inconvenient and inefficient.
 
 ## Goal
-Rather than referring to `text`, `value`, `color`, `selected, and
+Rather than referring to `text`, `value`, `color`, `selected`, and
 `button_pressed`, all states will be retrievable and editable via `_get_value` 
 and `_set_value` so that when referring to any element, regardless of type, the 
 same code may be used. Due to the existing methods for `set_value` and
