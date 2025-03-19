@@ -1,10 +1,10 @@
-class_name [name]
-extends [inherited]
+class_name _CLASS_
+extends _BASE_
 
 var disableAll : bool = false
 
-signal values_changed(value : Variant,me : [name])
-signal settings_changed(data : Dictionary,me : [name])
+signal values_changed(value : Variant,me : _CLASS_)
+signal settings_changed(data : Dictionary,me : _CLASS_)
 
 func _ready() : pass
 func _process(_delta) : pass
