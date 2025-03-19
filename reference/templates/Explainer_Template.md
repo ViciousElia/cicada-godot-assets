@@ -17,7 +17,7 @@
 
 ### Variables
 * `disableAll` (`bool`) - flag for whether the control is currently active. Set 
-and unset with `_set_disabled`
+and unset with `set_disable_all`
 [list of remaining variables with brief descriptions]
 
 ## Methods

@@ -25,6 +25,6 @@ func set_disable_all(disable : bool) :
 func export(withSettings : bool = false) :
 	if withSettings : return {"value" : get_values(),"settings" : get_settings()}
 	else : return {"value" : get_values()}
-func import(data : Dictionary = {value : ""}) :
+func import(data : Dictionary = {"value" : ""}) :
 	set_values(data.value)
-	if data.has(settings) : set_settings(data.settings)
+	if data.has("settings") : set_settings(data.settings)
