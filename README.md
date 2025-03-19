@@ -24,14 +24,14 @@ possible assets. This is both inconvenient and inefficient.
 
 ## Goal
 Rather than referring to `text`, `value`, `color`, `selected`, and
-`button_pressed`, all states will be retrievable and editable via `_get_value` 
-and `_set_value` so that when referring to any element, regardless of type, the 
+`button_pressed`, all states will be retrievable and editable via `get_values` 
+and `set_values` so that when referring to any element, regardless of type, the 
 same code may be used. Due to the existing methods for `set_value` and
-`get_value` on some elements, the `_` is included to allow the functions to be 
-created for all assets.
+`get_value` on some elements, the name is pluralised to allow the functions to
+be created for all assets.
 
-In addition, all end-level assets will have `_set_settings` for configuration
-and `_get_settings` recovery of configurations. Not all configurations will be 
+In addition, all end-level assets will have `set_settings` for configuration
+and `get_settings` recovery of configurations. Not all configurations will be 
 accessible, since they are manageable at design-time rather than run-time, but 
 those configurations that are reasonable should be accessible and editable at 
 run-time via consistent code. [This goal will need to be revisited now that
@@ -40,10 +40,10 @@ it's been explicitly stated, as it's not currently implemented as such.]
 Finally, all end-level assets should have `import` and `export` methods that can 
 build or recover both values and settings.
 
-Assets built as utility elements (those in the control directory) will have an 
-`initialise` method to pre-configure them. When building with these elements, it 
-will be necessary to add `import`/`export` code and others, since they are not 
-built to be end-level.
+Assets built as utility elements (those in the control directory) will also have 
+an `initialise` method to pre-configure them. When building with these elements, 
+it will be necessary to add `import`/`export` code and others, since they are 
+not built to be end-level.
 ## Projects
 Below are projects using these assets. The list will be short for a while.
 ### Current
