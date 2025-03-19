@@ -48,3 +48,7 @@ Brackets in a unit name will add prefixes.
 Maximum value in brackets is 12"
 placeholder_text = "Comma separated list of unit names."
 caret_blink = true
+
+[connection signal="item_selected" from="PickerGroup/UnitsOption" to="." method="_on_units_selected"]
+[connection signal="toggled" from="PickerGroup/EditButton" to="." method="_on_edit_toggled"]
+[connection signal="text_changed" from="TypeGroup/UnitsText" to="." method="_on_units_changed"]
