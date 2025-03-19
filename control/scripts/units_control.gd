@@ -9,11 +9,13 @@ var CSLregexp = RegEx.create_from_string("((\\[(\\d+)(:(\\d+))?\\])?([^,\\n\\r\\
 const LOW_ARRAY = ["d","c","m","μ","n","p","f","a","z","y","r","q"]
 const HIGH_ARRAY = ["","da","h","k","M","G","T","P","E","Z","Y","R","Q"]
 
-signal value_changed(value : Variant,me : UnitsControl)
-signal settings_changed(data : Variant, me : UnitsControl)
+# TODO : Rebuild to consider values and settings differently
 
-func _ready(): pass # initialise(3,"[3:5]g,lb,[2]slug,[:3]pck,[4:]de,[ddd") #
-func _process(_delta: float): pass
+signal values_changed(value : Variant,me : UnitsControl)
+signal settings_changed(data : Dictionary,me : UnitsControl)
+
+func _ready() : pass # initialise(3,"[3:5]g,lb,[2]slug,[:3]pck,[4:]de,[ddd") #
+func _process(_delta) : pass
 func initialise(value : Variant, list : Variant = null, textUnit : bool = false, fixedSet : bool = false):
 	if fixedSet :
 		$TypeGroup/UnitsText.editable = false
@@ -43,7 +45,10 @@ func initialise(value : Variant, list : Variant = null, textUnit : bool = false,
 		return
 	$PickerGroup/UnitsOption.add_item("Units")
 	$PickerGroup/UnitsOption.select(0)
-func _set_settings(data : Dictionary = {"value":null}):
+
+func set_values(newValue : Variant) : pass # TODO : build set code
+func get_values() -> Variant : return ""   # TODO : build get code
+func set_settings(data : Dictionary = {"value":null}):
 	if textOnly : $TypeGroup/UnitsText.text = str(data.value)
 	else:
 		$PickerGroup/UnitsOption.clear()
@@ -60,7 +65,7 @@ func _set_settings(data : Dictionary = {"value":null}):
 				else : $PickerGroup/UnitsOption.add_item(text)
 			$PickerGroup/UnitsOption.select(data.value)
 			return
-func _get_settings() -> Dictionary :
+func get_settings() -> Dictionary :
 	var retVal = {}
 	if textOnly : retVal["value"] = $TypeGroup/UnitsText.text
 	else :
@@ -72,10 +77,26 @@ func _get_settings() -> Dictionary :
 		retVal["options"] = optArray
 	return retVal
 
+func set_disable_all(disable : bool) :
+	# TODO : check if element is fixed ... do not enable settings for fixed elements
+	# TODO : uncomment one of these OR replace them with correct lines
+	#editable = !disable
+	#disabled = disable
+	# TODO : disable each relevant child
+	disableAll = disable
+
+func export(withSettings : bool = false) :
+	if withSettings : return {"value" : get_values(),"settings" : get_settings()}
+	else : return {"value" : get_values()}
+func import(data : Dictionary = {"value" : ""}) :
+	set_values(data.value)
+	if data.has("settings") : set_settings(data.settings)
+
+
 func _on_units_selected(idx : int):
-	value_changed.emit(idx,self)
+	values_changed.emit(idx,self)
 func _on_units_changed(text : String):
-	if textOnly : value_changed.emit (text , self)
+	if textOnly : values_changed.emit (text , self)
 	else :
 		$PickerGroup/UnitsOption.clear()
 		var newList = _parse_as_units(text)
@@ -84,7 +105,7 @@ func _on_units_changed(text : String):
 			$PickerGroup/UnitsOption.add_item("Units")
 			$PickerGroup/UnitsOption.select(0)
 			settings_changed.emit(["Units"],self)
-			value_changed.emit(0,self)
+			values_changed.emit(0,self)
 			return
 		for item in newList:
 			if item == "" : $PickerGroup/UnitsOption.add_separator()
@@ -93,7 +114,7 @@ func _on_units_changed(text : String):
 			$PickerGroup/UnitsOption.select(0)
 		else : $PickerGroup/UnitsOption.select(oldIdx)
 		settings_changed.emit(newList,self)
-		value_changed.emit($PickerGroup/UnitsOption.selected,self)
+		values_changed.emit($PickerGroup/UnitsOption.selected,self)
 func _on_edit_toggled(toggled : bool):
 	$TypeGroup.visible = toggled
 

@@ -3,20 +3,26 @@ extends ColorPickerButton
 
 var disableAll : bool = false
 
-signal value_changed(newColour : Color,me : ColourValue)
+signal values_changed(value : Variant,me : ColourValue)
+signal settings_changed(data : Dictionary,me : ColourValue)
 
-func _ready(): pass
-func _process(_delta: float): pass
+func _ready() : pass
+func _process(_delta) : pass
 
-func set_value(newVal : Color): color = newVal
-func get_value() -> Color: return color
-func set_settings(_newVal : Variant): pass
-func get_settings(): pass
-func _set_disabled(disable : bool = false):
+func set_values(newValue : Variant) : color = newValue
+func get_values() -> Variant : return color
+func set_settings(newSettings : Dictionary) : pass # TODO : build set code
+func get_settings() -> Dictionary : return {}      # TODO : build get code
+
+func set_disable_all(disable : bool) :
 	disabled = disable
 	disableAll = disable
 
-func export(_withSettings : bool = true) -> Dictionary: return {"value":color}
-func import(data : Dictionary = {"value":""}): color = data.value
+func export(withSettings : bool = false) :
+	if withSettings : return {"value" : get_values(),"settings" : get_settings()}
+	else : return {"value" : get_values()}
+func import(data : Dictionary = {"value" : ""}) :
+	set_values(data.value)
+	if data.has("settings") : set_settings(data.settings)
 
-func _on_color_changed(color: Color): value_changed.emit(color,self)
+func _on_color_changed(color: Color): values_changed.emit(color,self)
