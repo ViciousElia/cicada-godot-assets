@@ -28,7 +28,7 @@ max_value = 1e+09
 value = -1000.0
 update_on_text_changed = true
 
-[node name="VSeparator" type="VSeparator" parent="."]
+[node name="Separator1" type="VSeparator" parent="."]
 layout_mode = 2
 
 [node name="MaxLabel" type="Label" parent="."]
@@ -43,7 +43,7 @@ max_value = 1e+09
 value = 1000.0
 update_on_text_changed = true
 
-[node name="VSeparator2" type="VSeparator" parent="."]
+[node name="Separator2" type="VSeparator" parent="."]
 layout_mode = 2
 
 [node name="DecimalButton" parent="." instance=ExtResource("1_xmg88")]

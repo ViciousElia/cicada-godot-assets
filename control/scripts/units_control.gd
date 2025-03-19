@@ -14,7 +14,6 @@ signal settings_changed()
 
 func _ready():
 	initialise(3,"[3:5]g,lb,[2]slug,[:3]pck,[4:]de,[ddd") #pass #
-	
 func _process(_delta: float): pass
 func initialise(value : Variant, list : Variant = null, textUnit : bool = false, fixedSet : bool = false):
 	if fixedSet :
@@ -46,8 +45,10 @@ func initialise(value : Variant, list : Variant = null, textUnit : bool = false,
 	$PickerGroup/UnitsOption.add_item("Units")
 	$PickerGroup/UnitsOption.select(0)
 
-func _on_option_changed(idx : int):
+func _on_units_selected(idx : int):
 	value_changed.emit(idx,self)
+func _on_units_changed(text : String):
+	pass
 
 
 
