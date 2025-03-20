@@ -14,6 +14,10 @@ No default constants yet [there may be some for certain asset families later].
 * `disableAll` - flag to indicate whether the asset is active and editable. Only 
 intended to be set/unset with `set_disable_all`.
 
+#### Utility Assets
+* `fixedControl` (`bool`) - flag for whether the units provided may be changed. 
+Set or unset only with `initialise`
+
 ### Enumerations
 No default enumerations yet [there may be some for certain asset families later].
 
@@ -53,6 +57,10 @@ func import(data : Dictionary = {"value" : ""}) :
 	set_values(data.value)
 	if data.has("settings") : set_settings(data.settings)
 ```
+
+### Utility Assets
+* `initialise` - builds up the settings shortly after the node is created.
+
 ## Signals
 All signals should take a value and a `me` parameter, which will allow passage of 
 deeper information to the listeners as necessary.

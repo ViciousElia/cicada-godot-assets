@@ -42,21 +42,11 @@ MinValue, MaxValue, and DecimalButton are as described above.
 ### Constants
 N/A
 ### Variables
-* `disableAll` (`bool`) - flag for whether the control is currently active. Set 
-and unset with `_set_disabled`
-* `fixedControl` (`bool`) - flag for whether the units provided may be changed. 
-Set or unset only with `initialise`
+N/A
 ## Methods
-* `_ready` - called when the node is created. Currently does nothing.
-* `_process` - called on all action frames. Currently does nothing.
-* `initialise` - builds up the settings shortly after the node is created.
-* `_set_disabled` - enables/disables the control completely. Sets the disableAll 
-flag.
-* `_set_settings` - adjusts all settings, emits signals as necessary
-* `_get_settings` - returns a dictionary of all relevant settings
+N/A
 ## Signals
-* `settings_changed` - signal emits when `MinValue` or `MaxValue` changes or 
-when `DecimalButton` is toggled.
+N/A
 ## Listeners
 * `_on_decimal_toggled` - listens for a change to the toggle state of
 `DecimalButton`. Emits `settings_changed`

@@ -55,30 +55,18 @@ when building the UnitsOption list.
 * LOW_ARRAY - array of the SI prefixes from unit down to 10^-30.
 * HIGH_ARRAY - the SI prefixes from unit up to 10^30.
 ### Variables
-* `disableAll` (`bool`) - flag for whether the control is currently active. Set 
-and unset with `_set_disabled`
 * `textOnly` (`bool`) - flag for whether the control is using the dropdown. Set 
 or unset only with `initialise`
-* `fixedControl` (`bool`) - flag for whether the units provided may be changed. 
-Set or unset only with `initialise`
 * `CSLregexp` (`regex`)
 `/((\[(\d+)(:(\d+))?\])?([^,\n\r\t]+)\s*[,\n\r\t]?\s*)+?")/` - there may be 
 shorter regexs for comma separated lists, but this one takes into account the 
 formatting listed above.
 ## Methods
-* `_ready` - called when the node is created. Currently does nothing.
-* `_process` - called on all action frames. Currently does nothing.
-* `initialise` - builds up the settings shortly after the node is created.
-* `_set_disabled` - enables/disables the control completely. Sets the disableAll 
-flag.
-* `_set_settings` - adjusts all settings, emits signals as necessary
-* `_get_settings` - returns a dictionary of all relevant settings
 * `_parse_as_units` - parses text input as comma separated formatted list and
 outputs an array of options to rebuild `UnitsOption`. Outputs empty strings
 for separators for any unit with `[m:n]` expanders.
 ## Signals
-* `value_changed` - signal emits when `UnitsOption` or `UnitsText` changes
-* `settings_changed` - signal emits when `UnitsText` changes
+N/A
 ## Listeners
 * `_on_edit_toggled` - listens for a change to the toggle state of `EditButton`
 Shows or unshows `TypeGroup`
