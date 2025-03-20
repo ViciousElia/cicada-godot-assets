@@ -3,20 +3,26 @@ extends TextEdit
 
 var disableAll : bool = false
 
-signal value_changed(newText : String, me : LongTextValue)
+signal values_changed(value : Variant, me : LongTextValue)
+signal settings_changed(data : Dictionary,me : LongTextValue)
 
-func _ready(): pass
-func _process(_delta: float): pass
+func _ready() : pass
+func _process(_delta) : pass
 
-func set_value(newVal : String): text = newVal
-func get_value() -> String: return text
-func set_settings(_newVal : Variant): pass
-func get_settings(): pass
-func _set_disabled(disable : bool = false):
+func set_values(newValue : Variant) : text = newValue
+func get_values() -> Variant : return text
+func set_settings(_newSettings : Dictionary) : pass
+func get_settings() -> Dictionary : return {}
+
+func set_disable_all(disable : bool = false) :
 	editable = !disable
 	disableAll = disable
 
-func export(_withSettings : bool = true) -> Dictionary: return {"value":text}
-func import(data : Dictionary = {"value":""}): text = data.value
+func export(withSettings : bool = false) :
+	if withSettings : return {"value" : get_values(),"settings" : get_settings()}
+	else : return {"value" : get_values()}
+func import(data : Dictionary = {"value" : ""}) :
+	set_values(data.value)
+	if data.has("settings") : set_settings(data.settings)
 
-func _on_text_changed(): value_changed.emit(text,self)
+func _on_text_changed() : values_changed.emit(text,self)

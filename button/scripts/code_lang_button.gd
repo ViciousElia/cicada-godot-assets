@@ -4,8 +4,8 @@ extends OptionButton
 var disableAll : bool = false
 var fixedControl : bool = false
 
-# signal values_changed(value : Variant,me : CodeLangButton)
-# signal settings_changed(data : Dictionary,me : CodeLangButton)
+signal values_changed(value : Variant,me : CodeLangButton)
+signal settings_changed(data : Dictionary,me : CodeLangButton)
 signal code_changed(idx : int,me : CodeLangButton)
 
 func _ready() :
@@ -18,7 +18,7 @@ func _process(_delta) : pass
 
 func set_values(newValue : Variant) : select(newValue)
 func get_values() -> Variant : return selected
-func set_settings(newSettings : Dictionary) : pass # TODO : build set code
+func set_settings(_newSettings : Dictionary) : pass # TODO : build set code
 func get_settings() -> Dictionary : return {}      # TODO : build get code
 
 func set_disable_all(disable : bool) :

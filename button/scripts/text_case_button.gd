@@ -4,8 +4,8 @@ extends OptionButton
 var disableAll : bool = false
 var fixedControl : bool = false
 
-# signal values_changed(value : Variant,me : TextCaseButton)
-# signal settings_changed(data : Dictionary,me : TextCaseButton)
+signal values_changed(value : Variant,me : TextCaseButton)
+signal settings_changed(data : Dictionary,me : TextCaseButton)
 signal case_changed(idx : int,me : TextCaseButton)
 
 func _ready() :

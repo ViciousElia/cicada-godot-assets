@@ -46,14 +46,27 @@ func initialise(value : Variant, list : Variant = null, textUnit : bool = false,
 	$PickerGroup/UnitsOption.add_item("Units")
 	$PickerGroup/UnitsOption.select(0)
 
-func set_values(newValue : Variant) : pass # TODO : build set code
-func get_values() -> Variant : return ""   # TODO : build get code
-func set_settings(data : Dictionary = {"value":null}):
-	if textOnly : $TypeGroup/UnitsText.text = str(data.value)
-	else:
+func set_values(newValue : Variant) : 
+	if textOnly : $TypeGroup/UnitsText.text = newValue
+	else : $PickerGroup/UnitsOption.select(newValue)
+func get_values() -> Variant :
+	if textOnly : return $TypeGroup/UnitsText.text
+	else : return $PickerGroup/UnitsOption.selected
+func set_settings(data : Dictionary = {}) :
+	fixedControl = data.fixedControl
+	if data.textOnly && !textOnly : initialise(data.value,null,data.textOnly,data.fixedControl)
+	elif data.textOnly :
+		$TypeGroup/UnitsText.text = data.value
+		if fixedControl : $TypeGroup/UnitsText.editable = false
+		else : $TypeGroup/UnitsText.editable = true
+	elif textOnly : initialise(0,data.list,data.textOnly,data.fixedControl)
+	else :
+		$PickerGroup/EditButton.visible = !fixedControl
+		if fixedControl :
+			$PickerGroup/EditButton.set_pressed(false)
 		$PickerGroup/UnitsOption.clear()
-		var newList = data.options
-		if newList is String :
+		var newList = data.list
+		if newList is String:
 			newList = _parse_as_units(newList)
 		if newList is Array :
 			if newList.size() == 0:
@@ -63,26 +76,27 @@ func set_settings(data : Dictionary = {"value":null}):
 			for text in newList:
 				if text == "" : $PickerGroup/UnitsOption.add_separator()
 				else : $PickerGroup/UnitsOption.add_item(text)
-			$PickerGroup/UnitsOption.select(data.value)
+			$PickerGroup/UnitsOption.select(0)
 			return
+		$PickerGroup/UnitsOption.add_item("Units")
+		$PickerGroup/UnitsOption.select(0)
 func get_settings() -> Dictionary :
-	var retVal = {}
+	var options : Variant
+	var retVal : Dictionary = {"textOnly" : textOnly,"fixedControl" : fixedControl}
 	if textOnly : retVal["value"] = $TypeGroup/UnitsText.text
 	else :
-		var optArray : Array = []
-		for idx in $PickerGroup/UnitsOption.item_count:
-			if $PickerGroup/UnitsOption.is_item_separator(idx): optArray.push_back("")
-			else : optArray.push_back($PickerGroup/UnitsOption.get_item_text(idx))
-		retVal["value"] = $PickerGroup/UnitsOption.selected
-		retVal["options"] = optArray
+		var newList : Array[String] = []
+		for idx in $PickerGroup/UnitsOption.item_count :
+			if $PickerGroup/UnitsOption.is_item_separator(idx) : newList.push_back("")
+			else : newList.push_back($PickerGroup/UnitsOption.get_item_text(idx))
+		retVal["list"] = newList
 	return retVal
 
 func set_disable_all(disable : bool) :
-	# TODO : check if element is fixed ... do not enable settings for fixed elements
-	# TODO : uncomment one of these OR replace them with correct lines
-	#editable = !disable
-	#disabled = disable
-	# TODO : disable each relevant child
+	if fixedControl : return
+	$PickerGroup/UnitsOption.disabled = disable
+	$TypeGroup/UnitsText.editable = !disable
+	$PickerGroup/EditButton.disabled = disable
 	disableAll = disable
 
 func export(withSettings : bool = false) :
