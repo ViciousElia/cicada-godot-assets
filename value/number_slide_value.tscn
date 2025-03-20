@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf7nn8kpmxnta"]
+
+[ext_resource type="PackedScene" uid="uid://bpuhcah7v5d2r" path="res://value/number_slide_value_raw.tscn" id="1_unfi6"]
+[ext_resource type="Script" path="res://value/scripts/number_slide_value.gd" id="1_yisjm"]
+[ext_resource type="PackedScene" uid="uid://bh5goxd3m2f6o" path="res://control/number_control.tscn" id="2_xn0cl"]
+
+[node name="NumberSlideValue" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_yisjm")
+
+[node name="NumberSlideValueRaw" parent="." instance=ExtResource("1_unfi6")]
+layout_mode = 2
+
+[node name="NumberControl" parent="." instance=ExtResource("2_xn0cl")]
+layout_mode = 2
