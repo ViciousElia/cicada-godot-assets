@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpuhcah7v5d2r"]
 
-[ext_resource type="Script" path="res://value/scripts/number_slide_value_raw.gd" id="1_gojih"]
+[ext_resource type="Script" uid="uid://cku3uf578itul" path="res://value/scripts/number_slide_value_raw.gd" id="1_gojih"]
 
 [node name="NumberSlideValueRaw" type="HSlider"]
 anchors_preset = 14

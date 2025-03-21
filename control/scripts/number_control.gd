@@ -18,7 +18,7 @@ func initialise(settings : Dictionary = {"minValue":-1000,"maxValue":1000,"decim
 	set_disable_all(fixedControl)
 	fixedControl = fixedAll
 
-func set_values(newValue : Variant) : pass # TODO : build set code
+func set_values(_newValue : Variant) : pass # TODO : build set code
 func get_values() -> Variant : return null   # TODO : build get code
 func set_settings(data : Dictionary = {"minValue":-1000,"maxValue":1000,"decimal":false}) :
 	if data.has("minValue") : $MinValue.value = data.minValue

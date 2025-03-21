@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf7nn8kpmxnta"]
 
 [ext_resource type="PackedScene" uid="uid://bpuhcah7v5d2r" path="res://value/number_slide_value_raw.tscn" id="1_unfi6"]
-[ext_resource type="Script" path="res://value/scripts/number_slide_value.gd" id="1_yisjm"]
+[ext_resource type="Script" uid="uid://crhyi3ukrlyv" path="res://value/scripts/number_slide_value.gd" id="1_yisjm"]
 [ext_resource type="PackedScene" uid="uid://bh5goxd3m2f6o" path="res://control/number_control.tscn" id="2_xn0cl"]
 
 [node name="NumberSlideValue" type="VBoxContainer"]
@@ -21,3 +21,6 @@ layout_mode = 2
 
 [node name="NumberControl" parent="." instance=ExtResource("2_xn0cl")]
 layout_mode = 2
+
+[connection signal="values_changed" from="NumberSlideValueRaw" to="." method="_on_values_changed"]
+[connection signal="settings_changed" from="NumberControl" to="." method="_on_settings_changed"]

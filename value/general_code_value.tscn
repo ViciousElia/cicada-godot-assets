@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccq3xb81nder0"]
 
-[ext_resource type="Script" path="res://value/scripts/general_code_value.gd" id="1_wr5js"]
+[ext_resource type="Script" uid="uid://dx6y75vuhbcy1" path="res://value/scripts/general_code_value.gd" id="1_wr5js"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_cwtp4"]
 number_color = Color(0.3, 0.75, 0.5475, 1)

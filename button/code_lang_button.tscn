@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2n4lfelw7wcv"]
 
-[ext_resource type="Script" path="res://button/scripts/code_lang_button.gd" id="1_vock5"]
+[ext_resource type="Script" uid="uid://dv0bnmnpcw48c" path="res://button/scripts/code_lang_button.gd" id="1_vock5"]
 
 [node name="CodeLangButton" type="OptionButton"]
 anchors_preset = 1

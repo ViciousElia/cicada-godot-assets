@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsjig1fiminc8"]
 
-[ext_resource type="Script" path="res://value/scripts/text_value.gd" id="1_g0k0o"]
+[ext_resource type="Script" uid="uid://jde4k4qe16k5" path="res://value/scripts/text_value.gd" id="1_g0k0o"]
 
 [node name="TextValue" type="LineEdit"]
 anchors_preset = 14

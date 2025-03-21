@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Cicada - Consistently Interfacing Godot Asset Library"
 config/description="A collection of assets built to be fully consistent with data access and writing. Built directly on top of default Godot assets. Barring some assets built from other elements of the collection, each element should be independent of the rest."
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]

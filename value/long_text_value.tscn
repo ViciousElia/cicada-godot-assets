@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dl7sel3137fwl"]
 
-[ext_resource type="Script" path="res://value/scripts/long_text_value.gd" id="1_yfjgk"]
+[ext_resource type="Script" uid="uid://dvvkn0db5lkur" path="res://value/scripts/long_text_value.gd" id="1_yfjgk"]
 
 [node name="LongTextValue" type="TextEdit"]
 custom_minimum_size = Vector2(0, 200)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgm5ewpqub1ow"]
 
-[ext_resource type="Script" path="res://value/scripts/specific_code_value.gd" id="1_88aan"]
+[ext_resource type="Script" uid="uid://drrmdpeiewe7a" path="res://value/scripts/specific_code_value.gd" id="1_88aan"]
 [ext_resource type="PackedScene" uid="uid://b2n4lfelw7wcv" path="res://button/code_lang_button.tscn" id="2_88tpo"]
 
 [node name="SpecificCodeValue" type="CodeEdit"]
