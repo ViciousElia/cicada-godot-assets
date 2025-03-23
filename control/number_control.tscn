@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh5goxd3m2f6o"]
 
 [ext_resource type="PackedScene" uid="uid://d0y7m8btnv3hq" path="res://button/decimal_button.tscn" id="1_xmg88"]
-[ext_resource type="Script" uid="uid://x4kwrxcuxcwt" path="res://control/scripts/number_control.gd" id="1_yldv5"]
+[ext_resource type="Script" uid="uid://buadt2g6ftxrg" path="res://control/scripts/number_control.gd" id="1_yldv5"]
 
 [node name="NumberControl" type="HBoxContainer"]
 anchors_preset = 14

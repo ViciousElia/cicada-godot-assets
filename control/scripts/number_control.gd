@@ -4,8 +4,8 @@ extends HBoxContainer
 var disableAll : bool = false
 var fixedControl : bool = false
 
-# TODO : Rebuild to consider values and settings differently
-
+## Currently this signal is [color=red]never emitted[/color] and should only be
+## used if code is added to extend its use.
 signal values_changed(value : Variant,me : NumberControl)
 signal settings_changed(data : Dictionary,me : NumberControl)
 
@@ -18,12 +18,17 @@ func initialise(settings : Dictionary = {"minValue":-1000,"maxValue":1000,"decim
 	set_disable_all(fixedControl)
 	fixedControl = fixedAll
 
-func set_values(_newValue : Variant) : pass # TODO : build set code
-func get_values() -> Variant : return null   # TODO : build get code
-func set_settings(data : Dictionary = {"minValue":-1000,"maxValue":1000,"decimal":false}) :
-	if data.has("minValue") : $MinValue.value = data.minValue
-	if data.has("maxValue") : $MaxValue.value = data.maxValue
-	if data.has("decimal") : $DecimalButton.set_pressed_no_signal(data.decimal)
+func set_values(newValue : Variant) : 
+	if newValue is not Array : pass
+	elif newValue.size() > 0 :
+		$MinValue.value = newValue[0]
+		if newValue.size() > 1: $MaxValue.value = newValue[1]
+		if newValue.size() > 2: $DecimalButton.set_pressed(newValue[2])
+func get_values() -> Variant : return [$MinValue.value,$MaxValue.value,$DecimalButton.button_pressed]
+func set_settings(newSettings : Dictionary) :
+	if newSettings.has("minValue") : $MinValue.value = newSettings.minValue
+	if newSettings.has("maxValue") : $MaxValue.value = newSettings.maxValue
+	if newSettings.has("decimal") : $DecimalButton.set_pressed_no_signal(newSettings.decimal)
 func get_settings() -> Dictionary:
 	var retVal = {}
 	if $MinValue.value != -1000 : retVal["minValue"] = $MinValue.value
@@ -45,27 +50,14 @@ func import(data : Dictionary = {"value" : ""}) :
 	set_values(data.value)
 	if data.has("settings") : set_settings(data.settings)
 
-func _on_min_value_changed(value: float):
+func _on_min_value_changed(value: float) :
 	if value >= $MaxValue.value :
 		$MinValue.value = $MaxValue.value - 1
 		return
-	var retVal = {}
-	if value != -1000 : retVal["minValue"] = value
-	if $MaxValue.value != 1000 : retVal["maxValue"] = $MaxValue.value
-	if $DecimalButton.button_pressed : retVal["decimal"] = true
-	settings_changed.emit(retVal,self)
-func _on_max_value_changed(value: float):
+	settings_changed.emit(get_settings(),self)
+func _on_max_value_changed(value: float) :
 	if value <= $MinValue.value :
 		$MaxValue.value = $MinValue.value + 1
 		return
-	var retVal = {}
-	if $MinValue.value != -1000 : retVal["minValue"] = $MinValue.value
-	if value != 1000 : retVal["maxValue"] = value
-	if $DecimalButton.button_pressed : retVal["decimal"] = true
-	settings_changed.emit(retVal,self)
-func _on_decimal_toggled(toggled_on: bool):
-	var retVal = {}
-	if $MinValue.value != -1000 : retVal["minValue"] = $MinValue.value
-	if $MaxValue.value != 1000 : retVal["maxValue"] = $MaxValue.value
-	if toggled_on : retVal["decimal"] = true
-	settings_changed.emit(retVal,self)
+	settings_changed.emit(get_settings(),self)
+func _on_decimal_toggled(_toggled_on: bool) : settings_changed.emit(get_settings(),self)

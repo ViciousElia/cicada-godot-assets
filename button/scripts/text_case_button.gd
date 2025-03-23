@@ -4,6 +4,8 @@ extends OptionButton
 var disableAll : bool = false
 
 signal values_changed(value : Variant,me : TextCaseButton)
+## Currently this signal is [color=red]never emitted[/color] and should only be
+## used if code is added to extend its use.
 signal settings_changed(data : Dictionary,me : TextCaseButton)
 
 func _ready() :
