@@ -35,4 +35,4 @@ func import(data : Dictionary = {"value" : ""}) :
 	set_values(data.value)
 	if data.has("settings") : set_settings(data.settings)
 
-func _on_value_changed(): values_changed.emit(value,self)
+func _on_value_changed(newValue): values_changed.emit(newValue,self)

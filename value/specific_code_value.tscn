@@ -34,4 +34,4 @@ offset_top = -31.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[connection signal="code_changed" from="CodeLangButton" to="." method="_on_code_changed"]
+[connection signal="values_changed" from="CodeLangButton" to="." method="_on_code_changed"]

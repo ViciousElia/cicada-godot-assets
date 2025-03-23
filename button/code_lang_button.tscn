@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2n4lfelw7wcv"]
 
-[ext_resource type="Script" uid="uid://dv0bnmnpcw48c" path="res://button/scripts/code_lang_button.gd" id="1_vock5"]
+[ext_resource type="Script" uid="uid://bvld53hibamlq" path="res://button/scripts/code_lang_button.gd" id="1_vock5"]
 
 [node name="CodeLangButton" type="OptionButton"]
 anchors_preset = 1
@@ -15,6 +15,7 @@ selected = 0
 fit_to_longest_item = false
 item_count = 4
 popup/item_0/text = "MarkDown"
+popup/item_0/id = 0
 popup/item_1/text = "HTML"
 popup/item_1/id = 1
 popup/item_2/text = "LaTeX"
@@ -22,3 +23,5 @@ popup/item_2/id = 2
 popup/item_3/text = "BBCode"
 popup/item_3/id = 3
 script = ExtResource("1_vock5")
+
+[connection signal="item_selected" from="." to="." method="_on_item_selected"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxkuc0nsd4an8"]
 
-[ext_resource type="Script" uid="uid://c8nojti8aeepb" path="res://button/scripts/text_case_button.gd" id="1_yqbmc"]
+[ext_resource type="Script" uid="uid://bl6aks43ui3pq" path="res://button/scripts/text_case_button.gd" id="1_yqbmc"]
 
 [node name="TextCaseButton" type="OptionButton"]
 anchors_preset = 6
@@ -17,6 +17,7 @@ selected = 0
 fit_to_longest_item = false
 item_count = 6
 popup/item_0/text = "Free"
+popup/item_0/id = 0
 popup/item_1/text = "Snake"
 popup/item_1/id = 1
 popup/item_2/text = "Camel"
