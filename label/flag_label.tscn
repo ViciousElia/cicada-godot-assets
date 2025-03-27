@@ -19,7 +19,6 @@ text = "Flag"
 script = ExtResource("1_djc48")
 
 [node name="EditButton" parent="." instance=ExtResource("4_o31ma")]
-visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 6

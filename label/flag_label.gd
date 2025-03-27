@@ -2,11 +2,13 @@ class_name FlagLabel
 extends Label
 
 var disableAll : bool = false
-var fixedControl : bool = false # TODO : integrate fixedControl
+var fixedControl : bool = false
 
 # TODO : make everything work like my other stuff I guess?
 
 signal values_changed(value : Variant,me : FlagLabel)
+## Currently this signal is [color=red]never emitted[/color] and should only be
+## used if code is added to extend its use.
 signal settings_changed(data : Dictionary,me : FlagLabel)
 
 func _ready() : pass
@@ -14,6 +16,7 @@ func _process(_delta) : pass
 func initialise(value : String, freeLabel : bool = false) -> void:
 	set_values(value)
 	$EditButton.visible = freeLabel
+	fixedControl = !freeLabel
 
 func set_values(data : Variant) :
 	text = data
@@ -44,6 +47,7 @@ func import(data : Dictionary = {"value" : ""}) :
 ### MAIN OBJECT METHODS ###
 func _on_gui_input(event: InputEvent) -> void :
 	if disableAll : return
+	if fixedControl : return
 	if event is InputEventMouseButton :
 		if event.double_click and event.button_index&MOUSE_BUTTON_MASK_LEFT :
 			if $EditButton.visible : _on_edit_button_pressed()

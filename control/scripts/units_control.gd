@@ -16,20 +16,19 @@ func _ready() : pass # initialise(3,"[3:5]g,lb,[2]slug,[:3]pck,[4:]de,[ddd") #
 func _process(_delta) : pass
 func initialise(value : Variant, list : Variant = null, textUnit : bool = false, fixedSet : bool = false):
 	if fixedSet :
-		$TypeGroup/UnitsText.editable = false
+		$UnitsText.editable = false
 		$PickerGroup/EditButton.visible = false
 	textOnly = textUnit
 	fixedControl = fixedSet
 	if textUnit :
 		$PickerGroup.visible = false
-		$TypeGroup/ConfirmButton.visible = false
-		$TypeGroup.visible = true
-		$TypeGroup/UnitsText.text = str(value)
-		$TypeGroup/UnitsText.tooltip_text = "The unit associated with the value."
-		$TypeGroup/UnitsText.placeholder_text = "Unit name"
+		$UnitsText.visible = true
+		$UnitsText.text = str(value)
+		$UnitsText.tooltip_text = "The unit associated with the value."
+		$UnitsText.placeholder_text = "Unit name"
 		return
-	$TypeGroup/UnitsText.tooltip_text = "Comma separated list of unit names.\nIf left blank, the dropdown defaults to Units.\nBrackets in a unit name will add prefixes.\n[1:3] will add d,da,h,k\n[3:1] will add m,c,d,da\n[3] will add m,c,d,da,h,k.\nMaximum value in brackets is 12"
-	$TypeGroup/UnitsText.placeholder_text = "Comma separated list of unit names."
+	$UnitsText.tooltip_text = "Comma separated list of unit names.\nIf left blank, the dropdown defaults to Units.\nBrackets in a unit name will add prefixes.\n[1:3] will add d,da,h,k\n[3:1] will add m,c,d,da\n[3] will add m,c,d,da,h,k.\nMaximum value in brackets is 12"
+	$UnitsText.placeholder_text = "Comma separated list of unit names."
 	$PickerGroup/UnitsOption.clear()
 	var newList = list
 	if list is String : newList = _parse_as_units(list)
@@ -39,18 +38,18 @@ func initialise(value : Variant, list : Variant = null, textUnit : bool = false,
 		$PickerGroup/UnitsOption.select(0)
 
 func set_values(newValue : Variant) :
-	if textOnly : $TypeGroup/UnitsText.text = newValue
+	if textOnly : $UnitsText.text = newValue
 	else : $PickerGroup/UnitsOption.select(newValue)
 func get_values() -> Variant :
-	if textOnly : return $TypeGroup/UnitsText.text
+	if textOnly : return $UnitsText.text
 	else : return $PickerGroup/UnitsOption.selected
 func set_settings(newSettings : Dictionary) :
 	fixedControl = newSettings.fixedControl
 	if newSettings.textOnly && !textOnly : initialise(newSettings.value,null,newSettings.textOnly,newSettings.fixedControl)
 	elif newSettings.textOnly :
-		$TypeGroup/UnitsText.text = newSettings.value
-		if fixedControl : $TypeGroup/UnitsText.editable = false
-		else : $TypeGroup/UnitsText.editable = true
+		$UnitsText.text = newSettings.value
+		if fixedControl : $UnitsText.editable = false
+		else : $UnitsText.editable = true
 	elif textOnly : initialise(0,newSettings.list,newSettings.textOnly,newSettings.fixedControl)
 	else :
 		$PickerGroup/EditButton.visible = !fixedControl
@@ -61,7 +60,7 @@ func set_settings(newSettings : Dictionary) :
 		if newList is Array : build_options(newList)
 func get_settings() -> Dictionary :
 	var retVal : Dictionary = {"textOnly" : textOnly,"fixedControl" : fixedControl}
-	if textOnly : retVal["value"] = $TypeGroup/UnitsText.text
+	if textOnly : retVal["value"] = $UnitsText.text
 	else :
 		var newList : Array[String] = []
 		for idx in $PickerGroup/UnitsOption.item_count :
@@ -73,7 +72,7 @@ func get_settings() -> Dictionary :
 func set_disable_all(disable : bool) :
 	if fixedControl : return
 	$PickerGroup/UnitsOption.disabled = disable
-	$TypeGroup/UnitsText.editable = !disable
+	$UnitsText.editable = !disable
 	$PickerGroup/EditButton.disabled = disable
 	disableAll = disable
 
@@ -92,7 +91,7 @@ func _on_units_changed(text : String):
 		build_options(newList)
 		settings_changed.emit(newList,self)
 		values_changed.emit($PickerGroup/UnitsOption.selected,self)
-func _on_edit_toggled(toggled : bool) : $TypeGroup.visible = toggled
+func _on_edit_toggled(toggled : bool) : $UnitsText.visible = toggled
 
 func _parse_as_units(list : String) -> Array[String]:
 	var retVal : Array[String] = []

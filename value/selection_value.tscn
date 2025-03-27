@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgn78gq8cqua8"]
+
+[ext_resource type="Script" uid="uid://dkeqqd16oxd1b" path="res://value/scripts/selection_value.gd" id="1_5qmed"]
+[ext_resource type="PackedScene" uid="uid://dgubn0nnkt3el" path="res://button/edit_button.tscn" id="1_md2g3"]
+
+[node name="SelectionValue" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_5qmed")
+
+[node name="SelectionGroup" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DropdownSelector" type="OptionButton" parent="SelectionGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 1
+popup/item_0/text = "Item"
+popup/item_0/id = 0
+
+[node name="EditButton" parent="SelectionGroup" instance=ExtResource("1_md2g3")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+toggle_mode = true
+
+[node name="OptionsText" type="LineEdit" parent="."]
+visible = false
+layout_mode = 2
+
+[connection signal="item_selected" from="SelectionGroup/DropdownSelector" to="." method="_on_item_selected"]
+[connection signal="toggled" from="SelectionGroup/EditButton" to="." method="_on_edit_toggled"]
+[connection signal="text_changed" from="OptionsText" to="." method="_on_options_changed"]
