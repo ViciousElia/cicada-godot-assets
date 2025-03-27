@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsr6uvb06gbt4"]
+
+[ext_resource type="Script" uid="uid://bxqdfxsattq3d" path="res://value/scripts/number_spin_value.gd" id="1_0vb76"]
+[ext_resource type="PackedScene" uid="uid://bjc253lvqihwa" path="res://value/number_spin_value_raw.tscn" id="1_amli2"]
+[ext_resource type="PackedScene" uid="uid://bh5goxd3m2f6o" path="res://control/number_control.tscn" id="2_0vb76"]
+
+[node name="NumberSpinValue" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_0vb76")
+
+[node name="NumberSpinValueRaw" parent="." instance=ExtResource("1_amli2")]
+layout_mode = 2
+
+[node name="NumberControl" parent="." instance=ExtResource("2_0vb76")]
+layout_mode = 2
+
+[connection signal="values_changed" from="NumberSpinValueRaw" to="." method="_on_values_changed"]
+[connection signal="settings_changed" from="NumberControl" to="." method="_on_settings_changed"]
