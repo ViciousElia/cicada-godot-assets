@@ -36,4 +36,4 @@ func _on_settings_changed(data: Dictionary, _me : NumberControl) -> void:
 	settings_changed.emit(data,self)
 	pass
 
-func _on_values_changed(value: Variant, _me: NumberSlideValueRaw) : values_changed.emit(value,self)
+func _on_values_changed(value: Variant, _me: NumberSlideValueRaw) :	values_changed.emit(value,self)

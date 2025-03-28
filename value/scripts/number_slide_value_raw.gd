@@ -4,12 +4,16 @@ extends HSlider
 var disableAll : bool = false
 
 signal values_changed(value : Variant,me : NumberSlideValueRaw)
+## Currently this signal is [color=red]never emitted[/color] and should only be
+## used if code is added to extend its use.
 signal settings_changed(data : Dictionary,me : NumberSlideValueRaw)
 
 func _ready() : pass
 func _process(_delta) : pass
 
-func set_values(newValue : Variant) : value = newValue
+func set_values(newValue : Variant) :
+	tooltip_text = "Value: " + str(newValue)
+	value = newValue
 func get_values() -> Variant : return value
 func set_settings(newValue : Dictionary) :
 	if newValue.has("minValue") : min_value = newValue.minValue
@@ -35,4 +39,6 @@ func import(data : Dictionary = {"value" : ""}) :
 	set_values(data.value)
 	if data.has("settings") : set_settings(data.settings)
 
-func _on_value_changed(newValue): values_changed.emit(newValue,self)
+func _on_value_changed(newValue) :
+	tooltip_text = "Value: " + str(newValue)
+	values_changed.emit(newValue,self)
